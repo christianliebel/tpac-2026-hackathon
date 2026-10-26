@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Platform Planet</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+    <header class="hud">
+      <h1>Web Platform Planet</h1>
+      <p class="sub">Every mountain is a web feature from <a href="https://caniuse.com" target="_blank" rel="noopener">caniuse.com</a>. It rises as browser support grows.</p>
+      <div class="stats">
+        <div><span id="stat-shipped">0</span><label>features shipped</label></div>
+        <div><span id="stat-full">0</span><label>supported everywhere</label></div>
+        <div><span id="stat-avg">0%</span><label>avg. support</label></div>
+      </div>
+      <div class="renderer" id="renderer-badge">…</div>
+      <div class="face">
+        <button id="face-toggle" class="face-btn">Steer with your face</button>
+        <span id="face-status" class="face-status">camera stays on this device</span>
+      </div>
+      <div class="voice">
+        <button id="voice-toggle" class="face-btn">Talk to the planet</button>
+        <input id="openai-key" class="key-input" type="password" placeholder="OpenAI API key (stored locally)" autocomplete="off" />
+        <span id="voice-status" class="face-status">OpenAI Realtime · WebRTC</span>
+      </div>
+    </header>
+    <div class="captions" id="captions" hidden></div>
+    <div class="cam" id="cam" hidden><div class="cam-box" id="cam-box"></div></div>
+    <div class="year" id="year">2000</div>
+    <ul class="legend" id="legend"></ul>
+    <footer class="timeline">
+      <button id="play" class="play" aria-label="Pause">❚❚</button>
+      <div class="slider-wrap">
+        <input id="scrub" type="range" min="0" max="10000" value="0" step="1" aria-label="Time" />
+        <div class="ticks" id="ticks"></div>
+      </div>
+      <div class="date" id="date"></div>
+    </footer>
+    <div class="tooltip" id="tooltip" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
